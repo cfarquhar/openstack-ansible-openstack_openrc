@@ -123,7 +123,7 @@ class ManageGlance(object):
         with open(openrc_path) as openrc:
             matches = [line_re.match(l) for l in openrc]
             return dict(
-                (g.groupdict()['key'], g.groupdict()['value'])
+                (g.groupdict()['key'], g.groupdict()['value'].strip("'"))
                 for g in matches if g
             )
 
